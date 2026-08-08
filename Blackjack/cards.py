@@ -212,7 +212,7 @@ def betting(player):
         menu(player)
 
 def shuffle():
-    deck = csv_to_list("full_deck.csv")
+    deck = csv_to_list("BlackJack/full_deck.csv")
     return deck
 
 def is_blackjack(hand):
