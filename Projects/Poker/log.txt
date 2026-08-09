@@ -1,0 +1,11 @@
+October - Spent 1 hour planning how to do it and creating an exoskeleton code
+
+November 8 - Spent 2 hours researching ascii characters to use for cards and how to make printed text more entertaining 
+(found characters and bold functions to change the looks of the lettering)
+
+November 15 - Spent 6 hours finishing the functions, building a player class, and creating the logic for the dealer. I also
+debugged the calculations so that it accurately knew when an Ace was a 1 or an 11 and made the way to bet a lot easier and 
+more realistic. The logic for the computer and the calculation function took the longest because of the complexity of the 
+rules of blackjack
+
+November 19 - Spent 2 hours debugging code and fixing calculation errors (it would say the computer won when I did or vice versa)
