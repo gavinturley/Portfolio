@@ -1,0 +1,40 @@
+* Qucs 26.1.0  /Users/gavinturley/Desktop/ngspice/milestone12.sch
+.INCLUDE "/Users/gavinturley/Downloads/MCP6001_3.lib"
+In1 VDC in  DC 1M SIN(1M 0 0 0 0 0) AC 0 ACPHASE 0
+Is VDC in  DC 0 SIN(0 40N 2000 0 0 0) AC 40N ACPHASE 0
+In3 VDC in  DC 0 SIN(0 400N 20000 0 0 0) AC 400N ACPHASE 0
+In2 VDC in  DC 0 SIN(0 400N 100 0 0 0) AC 400N ACPHASE 0
+D1 in VDC DMOD_D1 AREA=1.0 Temp=26.85
+.MODEL DMOD_D1 D (Is=1.2P N=2 Cj0=0 M=0.5 Vj=0.5 Fc=0.5 Rs=0.0 Tt=0.0P Kf=0.0 Af=1.0 Bv=10 Ibv=1M Xti=3.0 Eg=1.11 Tcv=0.0 Trs=0.0 Ttt1=0.0 Ttt2=0.0 Tm1=0.0 Tm2=0.0 Tnom=26.85 )
+R1 0 in  2.7K tc1=0.0 tc2=0.0 
+XX1  ref _net0 vp 0 vinbetween MCP6001 
+XX2  ref _net1 vp 0 out MCP6001 
+C10 0 in  22N 
+R13 ref VDC  100K tc1=0.0 tc2=0.0 
+R14 0 ref  100K tc1=0.0 tc2=0.0 
+V1 VDC 0 DC 3.3 SIN(3.3 30M 1481 0 0 0) AC 30M ACPHASE 0
+C13 0 ref  10U 
+C15 0 ref  10U 
+C2 in _net2  25.2N 
+R16 _net2 _net0  2.13K tc1=0.0 tc2=0.0 
+R3 _net0 vinbetween  1.9MEG tc1=0.0 tc2=0.0 
+C3 _net0 vinbetween  12.3P 
+C7 vinbetween _net3  4.7N 
+R15 _net1 _net3  12.4K tc1=0.0 tc2=0.0 
+R9 _net1 out  1.08MEG tc1=0.0 tc2=0.0 
+C6 _net1 out  21.8P 
+R17 VDC vp  470 tc1=0.0 tc2=0.0 
+C16 vp 0  47U 
+C17 0 _net2  310P 
+C18 0 _net3  330P 
+
+.control
+
+tran 0.000502513 0.1 0 
+write spice4qucs.tr1.plot v(VDC) v(in) v(out) v(ref) v(vinbetween) v(vp)
+destroy all
+reset
+
+exit
+.endc
+.END

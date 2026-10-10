@@ -30,5 +30,3 @@ model = RandomForestRegressor()
 model.fit(features, target)
 
 print("Next month:", model.predict([[1300, 17000, 4200, 13]]))
-
-
